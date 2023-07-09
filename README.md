@@ -17,9 +17,9 @@ conda create -n <venv_name> python=3.10
 ## follow onscreen intructions to download necessary packages (if needed)
 conda activate <venv_name> 
 ```
-Use `conda deactivate` to move out of the virtual environment
+Use `conda deactivate` to move out of the virtual environment.
 
-if you only have python and not the conda environment (requires python version >=3.6), then try [^python_venv]: 
+If you only have python and not the conda environment (requires python version >=3.6), then try [^python_venv]: 
 ```
 python -m venv <venv_name>
 source ./<venv_name>/bin/activate
@@ -39,12 +39,11 @@ conda install -c conda-forge mpi4py
 
 ## Instructions
 
-> - In `hello_world.py` Add a simple send - receive operation, where all ranks send a message to rank 0
+- In `hello_world.py` Add a simple send - receive operation, where all ranks send a message to rank 0
+- In `broadcast.py`, create a dataset/dictionary that exists only on rank = 0 and broadcast that to all other
 
-> - In `broadcast.py`, create a dataset/dictionary that exists only on rank = 0 and broadcast that to all other
-
-> - In `integrate` folder, go through the script for the trapezoidal calculation in file `trapezoidal.py`, then move to file `mpi_integrate_send_recv.py` for parallel computation
-> - Update the file `mpi_integrate_reduce.py` to use `MPI.Reduce`
+- In `integrate` folder, go through the script for the trapezoidal calculation in file `trapezoidal.py`, then move to file `mpi_integrate_send_recv.py` for parallel computation
+- Update the file `mpi_integrate_reduce.py` to use `MPI.Reduce`
 
 
 [^python_venv]: https://docs.python.org/3/library/venv.html
