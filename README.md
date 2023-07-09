@@ -19,7 +19,7 @@ conda activate <venv_name>
 ```
 Use `conda deactivate` to move out of the virtual environment
 
-if you only have python and not the conda environment (requires python version >=3.6)
+if you only have python and not the conda environment (requires python version >=3.6), then try [^python_venv]: 
 ```
 python -m venv <venv_name>
 source ./<venv_name>/bin/activate
@@ -41,3 +41,6 @@ conda install -c conda-forge mpi4py
 
 > - Create a python environment for this demonstration pur
 
+
+[^python_venv]: https://docs.python.org/3/library/venv.html
+[^conda_venv]: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
