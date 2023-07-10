@@ -10,13 +10,13 @@ size  = comm.Get_size()
 # global limits
 a = 0.
 b = 1.
-n = 1000000
+n = 10000000
 # step size
 h = (b-a)/n
 
 ## parallelize by dividing the range among the processes --------
 # local_n is the number of trapezoids each process will calculate
-local_n = int(n/size) # NOTE: size must be divisible by n
+local_n = n//size # NOTE: size must be divisible by n
 
 local_a = a + prank*local_n*h
 local_b = local_a + local_n*h
@@ -43,6 +43,8 @@ else:
     # all other process send their result 
     comm.Send(integral, dest=0)
 '''
+comm.Reduce([integral, MPI.DOUBLE], [recv_buffer, MPI.DOUBLE], MPI.SUM, 0)
+total=recv_buffer[0]
 
 # root process prints results
 if prank == 0:
