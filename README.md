@@ -42,21 +42,22 @@ conda install -c conda-forge mpi4py
 - In the file `hello_world.py` add a simple send/receive operation, where all ranks send a message to rank 0
   Run using :
   ```
-  mpirun -n <nproc> hello_world.py
+  mpirun -n <nproc> python hello_world.py
   ```
 - In the file `broadcast.py` create a dataset/dictionary that exists only on rank = 0 and broadcast that to all other
   ```
-  mpirun -n <nproc> broadcast.py
+  mpirun -n <nproc> python broadcast.py
   ```
-- In the `integrate` folder, go through the script for the trapezoidal calculation in file `trapezoidal.py`, then move to file `mpi_integrate_send_recv.py` for parallel computation. Run using :
+- In the `integrate` folder, go through the script for the trapezoidal calculation in file `trapezoidal.py`, to look at the general implementation of a trapezoidal function.
+- Move on to the file `mpi_integrate_send_recv.py` for parallel computation through MPI send/receive operation. Run using :
   ```
-  mpirun -n 5 broadcast.py
+  mpirun -n 5 python mpi_integrate_send_recv.py
   ```
-- Update the file `mpi_integrate_reduce.py` to use `MPI.Reduce`.
+- Update the file `mpi_integrate_reduce.py` to use the global operation `MPI.Reduce`.
 
 - In the folder `domain_decomp`, the file `grid-hopping.py` demonstrates a simple domain decomposition. Run using :
   ```
-  mpirun -n 2 grid-hopping.py
+  mpirun -n 2 python grid-hopping.py
   ```
 ### Resources
 - `mpi4py` documentation: https://mpi4py.readthedocs.io/en/stable/tutorial.html
